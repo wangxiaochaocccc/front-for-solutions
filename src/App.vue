@@ -1,10 +1,6 @@
 <template>
-  <div class="">
-    {{ isMobileTerinal }}
-  </div>
+  <router-view />
 </template>
 
-<script setup>
-import { isMobileTerinal } from './utils/flexble'
-</script>
+<script setup></script>
 <style lang="scss"></style>
