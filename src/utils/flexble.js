@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import { PC_DEVICE_WIDTH } from '../constant'
+import { PC_DEVICE_WIDTH } from '@/constant'
 import { useWindowSize } from '@vueuse/core'
 
 // 获取响应式宽度
