@@ -9,3 +9,19 @@ const { width } = useWindowSize()
 export const isMobileTerinal = computed(() => {
   return width.value < PC_DEVICE_WIDTH
 })
+
+// 动态指定rem值 最大为40px,根据屏幕宽度动态计算
+export const useRem = () => {
+  // 定义最大值
+  const MAX_REM = 40
+  // 在页面html加载完成时
+  document.addEventListener('DOMContentLoaded', () => {
+    // 获取html
+    const html = document.querySelector('html')
+    // 计算
+    let fontSize = window.innerWidth / 10
+    fontSize = fontSize > MAX_REM ? MAX_REM : fontSize
+    // 赋值给html
+    html.style.fontSize = fontSize + 'px'
+  })
+}
