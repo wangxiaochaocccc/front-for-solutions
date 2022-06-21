@@ -1,8 +1,8 @@
 <template>
-  <div class="">我是移动端首页</div>
+  <navigation-page />
 </template>
 
-<script>
-export default {}
+<script setup>
+import navigationPage from './components/navigation/index.vue'
 </script>
 <style lang="scss"></style>
