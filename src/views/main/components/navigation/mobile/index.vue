@@ -15,7 +15,7 @@
         class="fixed top-0 right-[-1px] h-4 z-20 px-1 flex items-center bg-white shadow-l-white"
         @click="isShowPopup = !isShowPopup"
       >
-        <svg-icon name="hamburger" class="w-1.5 h-1.5"></svg-icon>
+        <m-svg-icon name="hamburger" class="w-1.5 h-1.5"></m-svg-icon>
       </li>
       <li
         v-for="(item, index) in data"
