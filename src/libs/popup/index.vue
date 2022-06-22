@@ -1,0 +1,49 @@
+<template>
+  <teleport to="body">
+    <!-- 蒙层 -->
+    <transition name="fade">
+      <div
+        v-if="modelValue"
+        class="w-screen h-screen bg-zinc-900/80 fixed top-0 left-0 z-30"
+        @click="emits('update:modelValue', false)"
+      ></div>
+    </transition>
+
+    <!-- 内容 -->
+    <transition name="popup">
+      <div v-if="modelValue" class="fixed bottom-0 w-screen z-40 bg-white">
+        <slot></slot>
+      </div>
+    </transition>
+  </teleport>
+</template>
+
+<script setup>
+defineProps({
+  modelValue: {
+    type: Boolean,
+    required: true
+  }
+})
+
+const emits = defineEmits(['update:modelValue', false])
+</script>
+<style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.popup-enter-active,
+.popup-leave-active {
+  transition: all 0.3s;
+}
+.popup-enter-from,
+.popup-leave-to {
+  transform: translateY(100%);
+}
+</style>

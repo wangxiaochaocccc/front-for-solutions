@@ -13,6 +13,7 @@
       <!-- 面包屑图标 -->
       <li
         class="fixed top-0 right-[-1px] h-4 z-20 px-1 flex items-center bg-white shadow-l-white"
+        @click="isShowPopup = !isShowPopup"
       >
         <svg-icon name="hamburger" class="w-1.5 h-1.5"></svg-icon>
       </li>
@@ -28,6 +29,7 @@
       </li>
     </ul>
   </div>
+  <m-popup v-model="isShowPopup"> 我是内容 </m-popup>
 </template>
 <script setup>
 import { onBeforeUpdate, ref, watch } from 'vue'
@@ -75,4 +77,6 @@ watch(currentCategoryIndex, (val) => {
 const handleItemClick = (index) => {
   currentCategoryIndex.value = index
 }
+// popup
+const isShowPopup = ref(false)
 </script>
