@@ -11,7 +11,11 @@
 
     <!-- 内容 -->
     <transition name="popup">
-      <div v-if="modelValue" class="fixed bottom-0 w-screen z-40 bg-white">
+      <div
+        v-if="modelValue"
+        class="fixed bottom-0 w-screen z-40 bg-white"
+        v-bind="$attrs"
+      >
         <slot></slot>
       </div>
     </transition>
@@ -19,7 +23,9 @@
 </template>
 
 <script setup>
-defineProps({
+import { useScrollLock } from '@vueuse/core'
+import { watch } from 'vue'
+const props = defineProps({
   modelValue: {
     type: Boolean,
     required: true
@@ -27,6 +33,19 @@ defineProps({
 })
 
 const emits = defineEmits(['update:modelValue', false])
+
+// 滚动锁定
+const isLocked = useScrollLock(document.body)
+
+watch(
+  () => props.modelValue,
+  (val) => {
+    isLocked.value = val
+  },
+  {
+    immediate: true
+  }
+)
 </script>
 <style lang="scss">
 .fade-enter-active,
