@@ -7,7 +7,7 @@
       <!-- 滑块 -->
       <li
         ref="slideRef"
-        class="absolute h-[22px] bg-zinc-900 rounded-lg duration-200 z-[-1]"
+        class="absolute h-[22.5px] bg-zinc-900 rounded-lg duration-200 z-[-1]"
         :style="sliderStyle"
       ></li>
       <!-- 面包屑图标 -->
@@ -32,7 +32,6 @@
 <script setup>
 import { onBeforeUpdate, ref, watch } from 'vue'
 import { useScroll } from '@vueuse/core'
-
 // 接收数据
 defineProps({
   data: {
@@ -44,7 +43,7 @@ defineProps({
 // 滑块
 const sliderStyle = ref({
   transform: 'translateX(0px)',
-  width: '60px'
+  width: '52px'
 })
 
 // 选中item的下标
@@ -66,7 +65,6 @@ const ulRef = ref(null)
 const { x: scrollLeft } = useScroll(ulRef)
 // 当currentCategoryIndex变化时 触发效果
 watch(currentCategoryIndex, (val) => {
-  console.log(itemsAll[val])
   const { left, width } = itemsAll[val].getBoundingClientRect()
   sliderStyle.value = {
     transform: `translateX(${scrollLeft.value + left - 10 + 'px'})`,
