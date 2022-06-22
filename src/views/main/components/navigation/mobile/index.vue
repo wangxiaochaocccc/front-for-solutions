@@ -29,11 +29,15 @@
       </li>
     </ul>
   </div>
-  <m-popup v-model="isShowPopup"> 我是内容 </m-popup>
+  <m-popup v-model="isShowPopup">
+    <menu-vue @setOnItem="handleItemClick" :categorys="data"></menu-vue>
+  </m-popup>
 </template>
 <script setup>
 import { onBeforeUpdate, ref, watch } from 'vue'
 import { useScroll } from '@vueuse/core'
+import MenuVue from '@/views/main/components/menu/index.vue'
+
 // 接收数据
 defineProps({
   data: {
@@ -76,6 +80,7 @@ watch(currentCategoryIndex, (val) => {
 // item点击事件
 const handleItemClick = (index) => {
   currentCategoryIndex.value = index
+  isShowPopup.value = false
 }
 // popup
 const isShowPopup = ref(false)
