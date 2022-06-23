@@ -30,6 +30,13 @@
           <slot name="fropdown" />
         </div>
       </transition>
+      <!-- 搜索按钮 -->
+      <m-button
+        icon="search"
+        iconColor="#ffffff"
+        class="absolute translate-y-[-50%] top-[50%] right-1 rounded-full"
+      >
+      </m-button>
     </div>
   </div>
 </template>
