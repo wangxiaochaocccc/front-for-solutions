@@ -65,9 +65,8 @@ const EMIT_FOCUE = 'focus'
 const EMIT_BLUR = 'blur'
 </script>
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useVModel, onClickOutside } from '@vueuse/core'
-import { watch } from 'fs'
 
 // 定义触发事件常量
 const props = defineProps({
