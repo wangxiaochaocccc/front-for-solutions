@@ -1,5 +1,5 @@
 <template>
-  <m-popover>
+  <m-popover placement="bottom-left">
     <template #reference>
       <m-svg-icon
         class="w-4 h-4 rounded-sm p-1 hover:bg-zinc-100/60 cursor-pointer duration-200"
