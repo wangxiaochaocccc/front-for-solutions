@@ -32,7 +32,7 @@ const placementEnum = [
 </script>
 <script setup>
 import { ref, watch, nextTick } from 'vue'
-
+import { DELAY_TIME } from '@/constant'
 const props = defineProps({
   placement: {
     type: String,
@@ -52,11 +52,20 @@ const props = defineProps({
 const isShow = ref(false)
 
 // 鼠标悬浮
+let timeout = null
 const onMouseEnter = () => {
+  if (timeout) {
+    clearTimeout(timeout)
+  }
   isShow.value = true
 }
 // 鼠标离开
+
 const onMouseLeave = () => {
+  timeout = setTimeout(() => {
+    isShow.value = false
+    timeout = null
+  }, DELAY_TIME)
   isShow.value = false
 }
 // 获取元素的宽高

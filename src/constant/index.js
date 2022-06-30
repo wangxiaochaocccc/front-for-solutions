@@ -12,3 +12,5 @@ export const THEME_DARK = 'dark'
 export const THEME_LIGHT = 'light'
 // 系统主题
 export const THEME_SYSTEM = 'system'
+// 延迟时间
+export const DELAY_TIME = 100
