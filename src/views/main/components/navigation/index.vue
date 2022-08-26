@@ -1,22 +1,14 @@
 <template>
-  <mobile-navigation v-if="isMobileTerinal" :data="categoryData" />
+  <mobile-navigation v-if="isMobileTerinal" />
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { isMobileTerinal } from '@/utils/flexble'
 import mobileNavigation from './mobile/index.vue'
-import { getCategory } from '@/api/category'
-import { ALL_CATEGORY } from '@/constant/index'
+import { useStore } from 'vuex'
 
-// 数据源
-const categoryData = ref([])
-// 获取分类
-const getCategoryData = async () => {
-  const { categorys } = await getCategory()
-  categoryData.value = categorys
-  categoryData.value.unshift(ALL_CATEGORY)
-}
-getCategoryData()
+const store = useStore()
+
+store.dispatch('category/useSetCategory')
 </script>
 <style lang="scss"></style>
