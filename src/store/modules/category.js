@@ -1,7 +1,7 @@
 /**
  * 处理navigationBar中的数据categorys
 */
-import { ALL_CATEGORY } from '@/constant/index'
+import { ALL_CATEGORY, CATEGORYS_NORMAL } from '@/constant/index'
 import { getCategory } from '@/api/category'
 
 export default {
@@ -9,7 +9,7 @@ export default {
   namespaced: true,
   state: () => {
     return {
-      categorys: [ALL_CATEGORY]
+      categorys: [CATEGORYS_NORMAL]
     }
   },
   mutations: {

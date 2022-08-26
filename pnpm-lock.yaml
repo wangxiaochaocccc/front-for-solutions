@@ -13,6 +13,7 @@ specifiers:
   vue: ^3.2.25
   vue-router: ^4.0.16
   vuex: ^4.0.2
+  vuex-persistedstate: ^4.1.0
 
 dependencies:
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/8.9.4_vue@3.2.37
@@ -21,6 +22,7 @@ dependencies:
   vue: registry.npmmirror.com/vue/3.2.37
   vue-router: registry.npmmirror.com/vue-router/4.1.4_vue@3.2.37
   vuex: registry.npmmirror.com/vuex/4.0.2_vue@3.2.37
+  vuex-persistedstate: registry.npmmirror.com/vuex-persistedstate/4.1.0_vuex@4.0.2
 
 devDependencies:
   '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/2.3.4_vite@2.9.15+vue@3.2.37
@@ -715,6 +717,13 @@ packages:
     name: decode-uri-component
     version: 0.2.0
     engines: {node: '>=0.10'}
+    dev: false
+
+  registry.npmmirror.com/deepmerge/4.2.2:
+    resolution: {integrity: sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/deepmerge/-/deepmerge-4.2.2.tgz}
+    name: deepmerge
+    version: 4.2.2
+    engines: {node: '>=0.10.0'}
     dev: false
 
   registry.npmmirror.com/define-property/0.2.5:
@@ -2247,6 +2256,13 @@ packages:
       split-string: registry.npmmirror.com/split-string/3.1.0
     dev: false
 
+  registry.npmmirror.com/shvl/2.0.3:
+    resolution: {integrity: sha512-V7C6S9Hlol6SzOJPnQ7qzOVEWUQImt3BNmmzh40wObhla3XOYMe4gGiYzLrJd5TFa+cI2f9LKIRJTTKZSTbWgw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/shvl/-/shvl-2.0.3.tgz}
+    name: shvl
+    version: 2.0.3
+    deprecated: older versions vulnerable to prototype pollution
+    dev: false
+
   registry.npmmirror.com/snapdragon-node/2.1.1:
     resolution: {integrity: sha512-O27l4xaMYt/RSQ5TR3vpWCAB5Kb/czIcqUFOM/C4fYcLnbZUc1PkjTAMjof2pBWaSTwOUd6qUHcFGVGj7aIwnw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/snapdragon-node/-/snapdragon-node-2.1.1.tgz}
     name: snapdragon-node
@@ -2680,6 +2696,20 @@ packages:
       '@vue/runtime-dom': registry.npmmirror.com/@vue/runtime-dom/3.2.37
       '@vue/server-renderer': registry.npmmirror.com/@vue/server-renderer/3.2.37_vue@3.2.37
       '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.37
+
+  registry.npmmirror.com/vuex-persistedstate/4.1.0_vuex@4.0.2:
+    resolution: {integrity: sha512-3SkEj4NqwM69ikJdFVw6gObeB0NHyspRYMYkR/EbhR0hbvAKyR5gksVhtAfY1UYuWUOCCA0QNGwv9pOwdj+XUQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vuex-persistedstate/-/vuex-persistedstate-4.1.0.tgz}
+    id: registry.npmmirror.com/vuex-persistedstate/4.1.0
+    name: vuex-persistedstate
+    version: 4.1.0
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+    peerDependencies:
+      vuex: ^3.0 || ^4.0.0-rc
+    dependencies:
+      deepmerge: registry.npmmirror.com/deepmerge/4.2.2
+      shvl: registry.npmmirror.com/shvl/2.0.3
+      vuex: registry.npmmirror.com/vuex/4.0.2_vue@3.2.37
+    dev: false
 
   registry.npmmirror.com/vuex/4.0.2_vue@3.2.37:
     resolution: {integrity: sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vuex/-/vuex-4.0.2.tgz}
