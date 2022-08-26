@@ -14,7 +14,7 @@
       </li>
       <!-- 伸缩图标 -->
       <div
-        class="absolute bottom-2 right-1 rounded duration-200 cursor-pointer hover:bg-zinc-200"
+        class="absolute bottom-2 right-0 rounded duration-200 cursor-pointer hover:bg-zinc-200"
       >
         <m-svg-icon
           class="w-1 h-1"
