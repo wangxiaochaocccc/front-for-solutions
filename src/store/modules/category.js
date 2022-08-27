@@ -1,6 +1,6 @@
 /**
  * 处理navigationBar中的数据categorys
-*/
+ */
 import { ALL_CATEGORY, CATEGORYS_NORMAL } from '@/constant/index'
 import { getCategory } from '@/api/category'
 
@@ -13,12 +13,12 @@ export default {
     }
   },
   mutations: {
-    setCategory (state, newData) {
+    setCategory(state, newData) {
       state.categorys = [ALL_CATEGORY, ...newData]
     }
   },
   actions: {
-    async useSetCategory (context) {
+    async useSetCategory(context) {
       const { categorys } = await getCategory()
       context.commit('setCategory', categorys)
     }

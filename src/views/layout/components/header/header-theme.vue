@@ -17,9 +17,9 @@
         fillClass="fill-zinc-900 dark:fill-zinc-300"
         :name="item.icon"
       />
-      <span class="text-sm text-zinc-800 font-bold ml-1 dark:text-zinc-300">{{
-        item.name
-      }}</span>
+      <span class="text-sm text-zinc-800 font-bold ml-1 dark:text-zinc-300">
+        {{ item.name }}
+      </span>
     </div>
   </m-popover>
 </template>

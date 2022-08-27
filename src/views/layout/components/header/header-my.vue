@@ -34,9 +34,9 @@
           class="w-1.5 h-1.5 mr-1"
           fillClass="fill-zinc-900 dark:fill-zinc-300"
         ></m-svg-icon>
-        <span class="text-zinc-800 text-sm dark:text-zinc-300">{{
-          item.title
-        }}</span>
+        <span class="text-zinc-800 text-sm dark:text-zinc-300">
+          {{ item.title }}
+        </span>
       </div>
     </div>
   </m-popover>

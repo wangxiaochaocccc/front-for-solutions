@@ -45,8 +45,7 @@
         iconColor="#ffffff"
         class="absolute translate-y-[-50%] top-[50%] right-1 rounded-full opacity-0 group-hover:opacity-100 duration-500 cursor-pointer"
         @click="onSearchHandle"
-      >
-      </m-button>
+      ></m-button>
     </div>
   </div>
 </template>

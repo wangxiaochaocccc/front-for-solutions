@@ -14,7 +14,7 @@ module.exports = {
       },
       boxShadow: {
         'l-white': '-10px 0 10px white',
-        'l-zinc': '-10px 0 10px #18181b',
+        'l-zinc': '-10px 0 10px #18181b'
       },
       height: {
         header: '72px',
