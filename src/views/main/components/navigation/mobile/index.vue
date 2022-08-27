@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-whit top-0 left-0 z-10 sticky">
+  <div class="bg-whit dark:bg-zinc-900 top-0 left-0 z-10 sticky">
     <ul
       ref="ulRef"
       class="relative flex text-xs text-zinc-600 overflow-x-auto overflow-hidden p-1"
@@ -7,12 +7,12 @@
       <!-- 滑块 -->
       <li
         ref="slideRef"
-        class="absolute h-[22.5px] bg-zinc-900 rounded-lg duration-200 z-[-1]"
+        class="absolute h-[22.5px] bg-zinc-900 dark:bg-zinc-800 rounded-lg duration-200 z-[-1]"
         :style="sliderStyle"
       ></li>
       <!-- 面包屑图标 -->
       <li
-        class="fixed top-0 right-[-1px] h-4 z-20 px-1 flex items-center bg-white shadow-l-white"
+        class="fixed top-0 right-[-1px] h-4 z-20 px-1 flex items-center bg-white dark:bg-zinc-900 shadow-l-white dark:shadow-l-zinc"
         @click="isShowPopup = !isShowPopup"
       >
         <m-svg-icon name="hamburger" class="w-1.5 h-1.5"></m-svg-icon>

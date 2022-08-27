@@ -31,9 +31,10 @@
 <script>
 // 定义按钮风格
 const typeStyle = {
-  primary: 'text-white bg-zinc-800 hover:bg-zinc-900 active:bg-zinc-800',
-  main: 'text-white bg-main hover:bg-hover-main active:bg-zinc-800',
-  info: 'text-zinc-800 bg-zinc-200 hover:bg-zinc-300 active:bg-zinc-200'
+  primary:
+    'text-white bg-zinc-800 dark:bg-zinc-900 hover:bg-zinc-900 dark:hover:bg-zinc-700 active:bg-zinc-800 dark:active:bg-zinc-700',
+  main: 'text-white bg-main dark:bg-zinc-900 hover:bg-hover-main active:bg-zinc-800 dark:active:bg-zinc-700 dark:hover:bg-zinc-700',
+  info: 'text-zinc-800 bg-zinc-200 hover:bg-zinc-300 active:bg-zinc-200 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:bg-zinc-900 dark:text-zinc-300'
 }
 // 按钮大小 分为文字按钮和icon按钮
 const sizeStyle = {

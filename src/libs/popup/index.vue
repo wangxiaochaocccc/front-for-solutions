@@ -13,7 +13,7 @@
     <transition name="popup">
       <div
         v-if="isVisible"
-        class="fixed bottom-0 w-screen z-40 bg-white"
+        class="fixed bottom-0 w-screen z-40 bg-white dark:bg-zinc-800"
         v-bind="$attrs"
       >
         <slot></slot>

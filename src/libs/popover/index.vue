@@ -8,7 +8,7 @@
       <div
         ref="contentRef"
         v-show="isShow"
-        class="bg-white rounded-md absolute p-1 z-20 border"
+        class="bg-white dark:bg-zinc-900 rounded-md absolute p-1 z-20 border dark:border-zinc-700"
         :style="placementStyle"
       >
         <!-- 匿名插槽：鼠标悬浮展示区域 -->

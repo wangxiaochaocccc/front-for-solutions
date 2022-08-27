@@ -2,22 +2,24 @@
   <m-popover placement="bottom-left">
     <template #reference>
       <m-svg-icon
-        class="w-4 h-4 rounded-sm p-1 hover:bg-zinc-100/60 cursor-pointer duration-200"
-        fillClass="fill-zinc-900"
+        class="w-4 h-4 rounded-sm p-1 hover:bg-zinc-100/60 cursor-pointer duration-200 dark:hover:bg-zinc-800"
+        fillClass="fill-zinc-900 dark:fill-zinc-300"
         name="theme-light"
       ></m-svg-icon>
     </template>
     <div
       v-for="item in themeArr"
       :key="item.id"
-      class="w-[120px] over-hidden flex items-center p-1 hover:bg-zinc-100/60 rounded-md cursor-pointer"
+      class="w-[120px] over-hidden flex items-center p-1 hover:bg-zinc-100/60 dark:hover:bg-zinc-800 rounded-md cursor-pointer"
     >
       <m-svg-icon
         class="w-1.5 h-1.5"
-        fillClass="fill-zinc-900"
+        fillClass="fill-zinc-900 dark:fill-zinc-300"
         :name="item.icon"
       />
-      <span class="text-sm text-zinc-800 font-bold ml-1">{{ item.name }}</span>
+      <span class="text-sm text-zinc-800 font-bold ml-1 dark:text-zinc-300">{{
+        item.name
+      }}</span>
     </div>
   </m-popover>
 </template>
