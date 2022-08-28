@@ -1,5 +1,9 @@
 <template>
-  <item-vue v-for="item in pexelsList" :key="item.id" :data="item" />
+  <m-waterfall>
+    <template v-solt="{ item, width }">
+      <item-vue v-for="item in pexelsList" :key="item.id" :data="item" />
+    </template>
+  </m-waterfall>
 </template>
 
 <script setup>
