@@ -3,6 +3,7 @@
     <div class="w-full overflow-auto rounded relative group">
       <!-- 图片 -->
       <img
+        v-lazy
         :src="data.photo"
         class="w-full rounded bg-transparent cursor-zoom-in"
         :style="{
