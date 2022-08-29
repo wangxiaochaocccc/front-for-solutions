@@ -57,7 +57,7 @@ const emitsLoad = () => {
 watch(isLoading, () => {
   setTimeout(() => {
     emitsLoad()
-  }, 100)
+  }, 200)
 })
 </script>
 <style lang="scss"></style>
