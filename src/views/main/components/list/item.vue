@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="w-[230px] h-[280px] bg-white dark:bg-zinc-900 xl:dark:bg-zinc-800"
-  >
+  <div class="bg-white dark:bg-zinc-900 xl:dark:bg-zinc-800">
     <div class="w-full overflow-auto rounded relative group">
       <!-- 图片 -->
       <img
