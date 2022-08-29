@@ -11,8 +11,8 @@
         class="m-waterfall-item duration-300 absolute"
         :style="{
           width: columnWidth + 'px',
-          left: item.style?.left + 'px',
-          top: item.style?.top + 'px'
+          left: item._style?.left + 'px',
+          top: item._style?.top + 'px'
         }"
         v-for="(item, index) in data"
         :key="nodeKey ? item[nodeKey] : index"
@@ -22,10 +22,21 @@
     </template>
   </div>
 </template>
-
+<script>
+export default {
+  name: 'waterfall'
+}
+</script>
 <script setup>
-import { onMounted, ref, computed, watch, nextTick } from 'vue'
-import { getImgEle, getImgSrc, awaitImgLoaded } from './utils'
+import { onMounted, ref, computed, watch, nextTick, onUnmounted } from 'vue'
+import {
+  getImgEle,
+  getImgSrc,
+  awaitImgLoaded,
+  getMinColIndex,
+  getMinHeight,
+  getMaxHeight
+} from './utils'
 
 const props = defineProps({
   // 数据源
@@ -77,11 +88,13 @@ const containerRef = ref(null)
 // 容器总宽度(只计算内容的宽度)
 const containerWidth = ref(0)
 // 计算容器宽度
+const containerLeft = ref(0)
 const useContainerWidth = () => {
   const { paddingLeft, paddingRight } = getComputedStyle(
     containerRef.value,
     null
   )
+  containerLeft.value = parseFloat(paddingLeft)
   containerWidth.value =
     containerRef.value.offsetWidth -
     parseFloat(paddingLeft) -
@@ -141,13 +154,55 @@ const useItemHeight = () => {
 }
 // 渲染位置方法
 const useItemLocation = () => {
-  console.log(itemHeights)
-}
+  // 遍历数据源
+  props.data.forEach((item, index) => {
+    // 如果存在_style
+    if (item._style) return
+    // 生成_style
+    item._style = {}
+    // top
+    item._style.top = getItemTop()
+    //left
+    item._style.left = getItemLeft()
 
+    // 列高度自增
+    increasingHeight(index)
+  })
+  // 指定容器高度
+  containerHeight.value = getMaxHeight(colHeightConatiner.value)
+}
+// 返回下一个item的left
+const getItemLeft = () => {
+  // 获取最小高度素在列
+  const column = getMinColIndex(colHeightConatiner.value)
+  return column * (columnWidth.value + props.colSpacing) + containerLeft.value
+}
+// 返回下一个item的top
+const getItemTop = () => {
+  return getMinHeight(colHeightConatiner.value)
+}
+// 指定高度自增
+const increasingHeight = (index) => {
+  // 获取最小高度所在列
+  const minHeightIndex = getMinColIndex(colHeightConatiner.value)
+  colHeightConatiner.value[minHeightIndex] +=
+    itemHeights[index] + props.rowSpacing
+}
+// 组件销毁时，清除所有_style
+onUnmounted(() => {
+  props.data.forEach((item) => {
+    delete item._style
+  })
+})
 // 监听data变化
 watch(
   () => props.data,
   (val) => {
+    // 重置数据
+    const resetColumnHeight = val.every((item) => !item._style)
+    if (resetColumnHeight) {
+      useColHeightContainer()
+    }
     nextTick(() => {
       if (props.picturePreReading) {
         awaitImgComplete()

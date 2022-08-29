@@ -31,3 +31,20 @@ export const awaitImgLoaded = (allImgs) => {
   })
   return Promise.all(promiseAll)
 }
+// 获取最小高度
+export const getMinHeight = (obj) => {
+  const min = Object.values(obj)
+  return Math.min(...min)
+}
+// 获取最小导读所在列
+export const getMinColIndex = (columnHeightObj) => {
+  const minIndex = getMinHeight(columnHeightObj)
+  return Object.keys(columnHeightObj).find(key => {
+    return columnHeightObj[key] === minIndex
+  })
+}
+// 获取最大高度列的高度
+export const getMaxHeight = (obj) => {
+  const max = Object.values(obj)
+  return Math.max(...max)
+}
