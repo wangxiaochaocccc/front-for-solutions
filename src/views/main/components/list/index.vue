@@ -3,11 +3,11 @@
     class="px-1 w-full"
     :data="pexelsList"
     :colNum="isMobileTerinal ? 2 : 5"
-    :picturePreReading="true"
+    :picturePreReading="false"
     nodeKey="id"
   >
     <template v-slot="{ item, width }">
-      <item-vue :data="item"></item-vue>
+      <item-vue :data="item" :width="width"></item-vue>
     </template>
   </m-waterfall>
 </template>

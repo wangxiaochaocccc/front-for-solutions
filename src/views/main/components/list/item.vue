@@ -5,6 +5,9 @@
       <img
         :src="data.photo"
         class="w-full rounded bg-transparent cursor-zoom-in"
+        :style="{
+          height: (width / data.photoWidth) * data.photoHeight + 'px'
+        }"
       />
       <!-- 遮罩层 -->
       <div
@@ -50,6 +53,9 @@ defineProps({
   data: {
     type: Object,
     required: true
+  },
+  width: {
+    type: Number
   }
 })
 </script>

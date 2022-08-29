@@ -230,9 +230,13 @@ const reset = () => {
 watch(
   () => props.colNum,
   () => {
-    // 先停止template的渲染
-    columnWidth.value = 0
-    reset()
+    if (props.picturePreReading) {
+      // 先停止template的渲染
+      columnWidth.value = 0
+      reset()
+    } else {
+      reset()
+    }
   }
 )
 </script>
