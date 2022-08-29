@@ -20,7 +20,7 @@
 import { useVModel, useIntersectionObserver } from '@vueuse/core'
 import { ref } from 'vue'
 
-const props = defineEmits({
+const props = defineProps({
   // 是否处于加载状态
   modelValue: {
     type: Boolean,
@@ -39,9 +39,9 @@ const emits = defineEmits(['onload', 'update:ModelValue'])
 const targetRef = ref(null)
 useIntersectionObserver(targetRef, ([{ isIntersecting }], observerElement) => {
   // 当加载更多的视图可见时，加载更多数据
-  if (isIntersecting && !loading.value && !props.isFinished) {
+  if (isIntersecting && !isLoading.value && !props.isFinished) {
     // 修改加载数据标记
-    loading.value = true
+    isLoading.value = true
     // 触发加载更多行为
     emits('onLoad')
   }
