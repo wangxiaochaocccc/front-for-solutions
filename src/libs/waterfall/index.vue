@@ -216,5 +216,24 @@ watch(
     immediate: true
   }
 )
+const reset = () => {
+  setTimeout(() => {
+    // 重新计算列宽
+    useColWidth()
+    // 重置数据
+    props.data.forEach((item) => {
+      item._style = null
+    })
+  }, 100)
+}
+// 监听列数变化
+watch(
+  () => props.colNum,
+  () => {
+    // 先停止template的渲染
+    columnWidth.value = 0
+    reset()
+  }
+)
 </script>
 <style lang="scss"></style>

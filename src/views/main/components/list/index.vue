@@ -1,7 +1,8 @@
 <template>
   <m-waterfall
+    class="px-1 w-full"
     :data="pexelsList"
-    :colNum="5"
+    :colNum="isMobileTerinal ? 2 : 5"
     :picturePreReading="true"
     nodeKey="id"
   >
@@ -15,6 +16,7 @@
 import { ref } from 'vue'
 import itemVue from './item.vue'
 import { getPexels } from '@/api/pexels'
+import { isMobileTerinal } from '@/utils/flexble'
 
 // 参数
 const query = {

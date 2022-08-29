@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-whit dark:bg-zinc-900 top-0 left-0 z-10 sticky">
+  <div class="bg-white dark:bg-zinc-900 top-0 left-0 z-10 sticky">
     <ul
       ref="ulRef"
       class="relative flex text-xs text-zinc-600 overflow-x-auto overflow-hidden p-1"
