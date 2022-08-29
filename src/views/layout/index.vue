@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen">
-    <header-vue class="h-header"></header-vue>
+    <header-vue class="h-header" v-if="!isMobileTerinal"></header-vue>
     <div class="h-main">
       <main-vue></main-vue>
     </div>
@@ -12,5 +12,6 @@
 import HeaderVue from './components/header/index.vue'
 import MainVue from './components/main.vue'
 import FloatingVue from './components/floating.vue'
+import { isMobileTerinal } from '@/utils/flexble'
 </script>
 <style lang="scss"></style>
