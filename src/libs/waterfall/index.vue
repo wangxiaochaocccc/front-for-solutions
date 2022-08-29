@@ -6,18 +6,18 @@
     :style="{ height: containerHeight + 'px' }"
   >
     <!-- 确保有列宽和数据时候渲染，因为列数是不确定的 -->
-    <template v-if="colWidth && data.length">
+    <template v-if="columnWidth && data.length">
       <div
         class="duration-300 absolute"
         :style="{
-          width: 20 + 'px',
-          left: 20 + 'px',
-          top: 20 + 'px'
+          width: columnWidth + 'px',
+          left: item.style?.left + 'px',
+          top: item.style?.top + 'px'
         }"
         v-for="(item, index) in data"
         :key="nodeKey ? item[nodeKey] : index"
       >
-        <slot :item="item" :width="colWidth" :index="index"></slot>
+        <slot :item="item" :width="columnWidth" :index="index" />
       </div>
     </template>
   </div>
@@ -102,6 +102,7 @@ const useColWidth = () => {
 
 onMounted(() => {
   useColWidth()
+  console.log(columnWidth.value)
 })
 </script>
 <style lang="scss"></style>

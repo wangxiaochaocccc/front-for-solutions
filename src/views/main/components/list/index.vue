@@ -1,7 +1,12 @@
 <template>
-  <m-waterfall>
-    <template v-solt="{ item, width }">
-      <item-vue v-for="item in pexelsList" :key="item.id" :data="item" />
+  <m-waterfall
+    :data="pexelsList"
+    :colNum="5"
+    :picturePreReading="true"
+    nodeKey="id"
+  >
+    <template v-slot="{ item, width }">
+      <item-vue :data="item"></item-vue>
     </template>
   </m-waterfall>
 </template>
