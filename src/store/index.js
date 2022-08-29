@@ -3,12 +3,14 @@ import getters from './getters'
 import category from './modules/category'
 import createPersistedState from 'vuex-persistedstate'
 import theme from './modules/theme.js'
+import app from './modules/app'
 
 const store = createStore({
   getters,
   modules: {
     category,
-    theme
+    theme,
+    app
   },
   plugins: [
     createPersistedState({

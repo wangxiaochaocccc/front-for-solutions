@@ -21,6 +21,7 @@ export default defineConfig({
   },
   server: {
     // 配置代理
+    port: 9000,
     proxy: {
       '/api': {
         target: 'https://api.imooc-front.lgdsunday.club', //目标地址

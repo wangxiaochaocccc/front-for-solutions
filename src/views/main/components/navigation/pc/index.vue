@@ -7,8 +7,11 @@
       <li
         class="shrink-0 cursor-pointer rounded hover:bg-zinc-200 dark:bg-zinc-800 px-1.5 py-0 h-4 leading-4 text-zinc-900 dark:text-zinc-500 mr-1 mb-1 text-base"
         v-for="(item, index) in $store.getters.categorys"
-        @click="handleSelected(index)"
-        :class="{ 'bg-zinc-200 dark:bg-zinc-700': isActive === index }"
+        @click="handleSelected(item)"
+        :class="{
+          'bg-zinc-200 dark:bg-zinc-700':
+            $store.getters.curCategoryIndex === index
+        }"
       >
         {{ item.name }}
       </li>
@@ -28,7 +31,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useStore } from 'vuex'
 
+const store = useStore()
 /**
  * 切换状态处理
  */
@@ -39,9 +44,8 @@ const triggerOpened = () => {
 /**
  * 选中状态
  */
-const isActive = ref(0)
-const handleSelected = (index) => {
-  isActive.value = index
+const handleSelected = (item) => {
+  store.commit('app/changeCateGory', item)
 }
 </script>
 <style lang="scss"></style>

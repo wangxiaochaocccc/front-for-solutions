@@ -15,13 +15,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import itemVue from './item.vue'
 import { getPexels } from '@/api/pexels'
 import { isMobileTerinal } from '@/utils/flexble'
+import store from '../../../../store'
 
 // 参数
-const query = {
+let query = {
   page: 1,
   size: 20
 }
@@ -54,5 +55,23 @@ const getList = async () => {
   // 修改loading标记
   loading.value = false
 }
+
+// 重置参数
+const resetQuery = (newQuery) => {
+  query = { ...query, ...newQuery }
+  // 重置状态
+  isFinished.value = false
+  pexelsList.value = []
+}
+// 监听curCategory辩护
+watch(
+  () => store.getters.curCategory,
+  (curCategory) => {
+    resetQuery({
+      page: 1,
+      categoryId: curCategory.id
+    })
+  }
+)
 </script>
 <style lang="scss"></style>
