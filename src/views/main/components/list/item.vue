@@ -1,6 +1,11 @@
 <template>
   <div class="bg-white dark:bg-zinc-900 xl:dark:bg-zinc-800">
-    <div class="w-full overflow-auto rounded relative group">
+    <div
+      class="w-full overflow-auto rounded relative group"
+      :style="{
+        backgroundColor: randomRGB()
+      }"
+    >
       <!-- 图片 -->
       <img
         v-lazy
@@ -50,6 +55,7 @@
 </template>
 
 <script setup>
+import { randomRGB } from '@/utils/color'
 defineProps({
   data: {
     type: Object,
