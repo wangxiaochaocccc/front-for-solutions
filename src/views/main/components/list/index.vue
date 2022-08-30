@@ -19,9 +19,9 @@ import { ref, watch } from 'vue'
 import itemVue from './item.vue'
 import { getPexels } from '@/api/pexels'
 import { isMobileTerinal } from '@/utils/flexble'
-import store from '../../../../store'
-import { propsToAttrMap } from '@vue/shared'
+import { useStore } from 'vuex'
 
+const store = useStore()
 // 参数
 let query = {
   page: 1,

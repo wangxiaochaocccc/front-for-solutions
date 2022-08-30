@@ -85,9 +85,9 @@ const isVisible = ref(false)
 
 // 在onMounted中显示，有动画
 onMounted(() => {
-  isVisible = true
+  isVisible.value = true
   setTimeout(() => {
-    isVisible = false
+    isVisible.value = false
   }, props.duration)
 })
 </script>
