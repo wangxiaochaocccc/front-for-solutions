@@ -11,6 +11,8 @@
           />
           <!-- 搜索历史 -->
           <history-vue v-show="!inputValue" @itemClick="handleClick" />
+          <!-- 推荐主题 -->
+          <ThemeVue v-show="!inputValue" />
         </div>
       </template>
     </m-search>
@@ -21,6 +23,7 @@
 import { ref } from 'vue'
 import HintVue from './hint.vue'
 import historyVue from './history.vue'
+import ThemeVue from './theme.vue'
 import { useStore } from 'vuex'
 
 const store = useStore()
