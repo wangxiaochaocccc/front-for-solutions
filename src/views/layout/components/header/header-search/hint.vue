@@ -16,6 +16,7 @@ const EMITS_ITEM_CLICK = 'handleClick'
 <script setup>
 import { watch, ref } from 'vue'
 import { getHint } from '@/api/pexels'
+import { watchDebounced } from '@vueuse/core'
 //接收数据
 const props = defineProps({
   searchText: {
@@ -31,15 +32,10 @@ const getData = async () => {
   hintData.value = result
 }
 // 监听seachText
-watch(
-  () => props.searchText,
-  () => {
-    getData()
-  },
-  {
-    immediate: true
-  }
-)
+watchDebounced(() => props.searchText, getData, {
+  immediate: true,
+  debounce: 500
+})
 
 const emits = defineEmits([EMITS_ITEM_CLICK])
 // 点击搜索结果
