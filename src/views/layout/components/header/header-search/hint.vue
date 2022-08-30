@@ -1,0 +1,50 @@
+<template>
+  <div>
+    <div
+      v-for="(item, index) in hintData"
+      :key="index"
+      class="py-1 pl-1 text-base font-bold cursor-pointer rounded text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-800"
+      @click="itemClick(item)"
+    >
+      {{ item }}
+    </div>
+  </div>
+</template>
+<script>
+const EMITS_ITEM_CLICK = 'handleClick'
+</script>
+<script setup>
+import { watch, ref } from 'vue'
+import { getHint } from '@/api/pexels'
+//接收数据
+const props = defineProps({
+  searchText: {
+    type: String
+  }
+})
+
+// 获取搜索数据
+const hintData = ref([])
+const getData = async () => {
+  if (!props.searchText) return
+  const { result } = await getHint(props.searchText)
+  hintData.value = result
+}
+// 监听seachText
+watch(
+  () => props.searchText,
+  () => {
+    getData()
+  },
+  {
+    immediate: true
+  }
+)
+
+const emits = defineEmits([EMITS_ITEM_CLICK])
+// 点击搜索结果
+const itemClick = (item) => {
+  emits(EMITS_ITEM_CLICK, item)
+}
+</script>
+<style lang="scss"></style>

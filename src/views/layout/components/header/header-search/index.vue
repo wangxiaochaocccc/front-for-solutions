@@ -1,8 +1,14 @@
 <template>
   <div class="w-full">
-    <m-search v-model="inputValue">
+    <m-search v-model="inputValue" @search="onSearchHandle">
       <template #dropdown>
-        <div>dropdown</div>
+        <div>
+          <hint-vue
+            :searchText="inputValue"
+            v-show="inputValue"
+            @handleClick="handleClick"
+          />
+        </div>
       </template>
     </m-search>
   </div>
@@ -10,6 +16,18 @@
 
 <script setup>
 import { ref } from 'vue'
+import HintVue from './hint.vue'
+
 const inputValue = ref('')
+
+// 搜索
+const onSearchHandle = (val) => {
+  console.log(val)
+  inputValue.value = val
+}
+// 点击搜索项回调
+const handleClick = (val) => {
+  inputValue.value = val
+}
 </script>
 <style lang="scss"></style>

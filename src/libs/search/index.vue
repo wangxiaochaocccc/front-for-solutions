@@ -36,7 +36,7 @@
           v-show="isFocus"
           class="max-h-[368px] w-full rounded absolute top-[56px] left-0 z-20 bg-white dark:bg-zinc-900 dark:border-zinc-600 overflow-auto text-base p-2 border border-zinc-200 hover:shadow-3xl duration-200"
         >
-          <slot name="fropdown" />
+          <slot name="dropdown" />
         </div>
       </transition>
       <!-- 搜索按钮 -->
@@ -93,7 +93,7 @@ const onDeteteHandle = () => {
 }
 // 搜索
 const onSearchHandle = () => {
-  emits('EMIT_SEARCH', inputValue.value)
+  emits(EMIT_SEARCH, inputValue.value)
   console.log('search')
 }
 // 获取焦点
