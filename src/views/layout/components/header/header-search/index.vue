@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <m-search v-model="inputValue" @search="onSearchHandle">
+    <m-search v-model="inputValue" @search="handleClick">
       <template #dropdown>
         <div>
           <!-- 搜索提示 -->
@@ -10,7 +10,7 @@
             @handleClick="handleClick"
           />
           <!-- 搜索历史 -->
-          <history-vue v-show="!inputValue" @itemClick="handleClick" />
+          <history-vue v-show="!inputValue" @handleClick="handleClick" />
           <!-- 推荐主题 -->
           <ThemeVue v-show="!inputValue" />
         </div>
@@ -29,15 +29,12 @@ import { useStore } from 'vuex'
 const store = useStore()
 const inputValue = ref('')
 
-// 搜索
-const onSearchHandle = (val) => {
-  console.log(val)
-  inputValue.value = val
-}
 // 点击搜索项回调
 const handleClick = (val) => {
+  if (!val) return
   inputValue.value = val
   store.commit('search/addHistory', val)
+  store.commit('app/changeSearchText', val)
 }
 </script>
 <style lang="scss"></style>

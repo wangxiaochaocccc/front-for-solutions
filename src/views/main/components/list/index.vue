@@ -20,6 +20,7 @@ import itemVue from './item.vue'
 import { getPexels } from '@/api/pexels'
 import { isMobileTerinal } from '@/utils/flexble'
 import store from '../../../../store'
+import { propsToAttrMap } from '@vue/shared'
 
 // 参数
 let query = {
@@ -63,13 +64,23 @@ const resetQuery = (newQuery) => {
   isFinished.value = false
   pexelsList.value = []
 }
-// 监听curCategory辩护
+// 监听curCategory
 watch(
   () => store.getters.curCategory,
   (curCategory) => {
     resetQuery({
       page: 1,
       categoryId: curCategory.id
+    })
+  }
+)
+// 监听搜索文本变化
+watch(
+  () => store.getters.searchText,
+  (searchText) => {
+    resetQuery({
+      page: 1,
+      searchText: searchText
     })
   }
 )
