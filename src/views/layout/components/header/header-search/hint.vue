@@ -4,10 +4,9 @@
       v-for="(item, index) in hintData"
       :key="index"
       class="py-1 pl-1 text-base font-bold cursor-pointer rounded text-zinc-500 hover:bg-zinc-200 dark:hover:bg-zinc-800"
+      v-html="highLightText(item)"
       @click="itemClick(item)"
-    >
-      {{ item }}
-    </div>
+    ></div>
   </div>
 </template>
 <script>
@@ -41,6 +40,13 @@ const emits = defineEmits([EMITS_ITEM_CLICK])
 // 点击搜索结果
 const itemClick = (item) => {
   emits(EMITS_ITEM_CLICK, item)
+}
+
+// 文本高亮处理
+const highLightText = (text) => {
+  const hilightStr = `<span class="text-zinc-900 dark:text-zinc-200">${props.searchText}</span>`
+  const reg = new RegExp(props.searchText, 'gi')
+  return text.replace(reg, hilightStr)
 }
 </script>
 <style lang="scss"></style>
