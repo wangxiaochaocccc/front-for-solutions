@@ -6,10 +6,10 @@
       <m-svg-icon
         v-show="isLoading"
         name="infinite-load"
-        class="w-4 h-4 animate-spin"
+        class="w-4 h-4 animate-spin mx-auto"
       ></m-svg-icon>
       <!-- 没有数据了 -->
-      <p class="text-base text-zinc-400 text-center" v-if="isFinished">
+      <p class="text-base text-zinc-400 text-center mt-4" v-if="isFinished">
         已经到底了！
       </p>
     </div>
