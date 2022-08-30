@@ -58,7 +58,7 @@ const sizeStyle = {
 </script>
 <script setup>
 import { computed } from 'vue'
-
+import MSvgIcon from '../svg-icon/index.vue'
 // 常量
 const emits = defineEmits(['btnClick'])
 

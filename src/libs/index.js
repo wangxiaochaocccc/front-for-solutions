@@ -1,7 +1,8 @@
 import { defineAsyncComponent } from 'vue'
+export { confirm } from './confirm'
 
 export default {
-  install(app) {
+  install (app) {
     // 获取当前路径下任意文件夹的index.vue
     const components = import.meta.glob('./*/index.vue')
     // 遍历所有组件模块

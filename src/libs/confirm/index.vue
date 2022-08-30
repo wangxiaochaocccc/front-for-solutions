@@ -1,14 +1,14 @@
 <template>
   <!-- 蒙层 -->
-  <trasition name="fade">
+  <transition name="fade">
     <div
       v-if="isVisible"
       class="w-screen h-screen fixed top-0 left-0 z-40 bg-zinc-800/80"
       @click="close"
     ></div>
-  </trasition>
+  </transition>
   <!-- 主体 -->
-  <trasition name="up">
+  <transition name="up">
     <div
       v-if="isVisible"
       class="w-[80%] p-2 bg-white dark:bg-zinc-800 fixed top-1/3 left-[50%] z-50 translate-x-[-50%] rounded xl:w-[35%]"
@@ -31,7 +31,7 @@
         </m-button>
       </div>
     </div>
-  </trasition>
+  </transition>
 </template>
 
 <script setup>

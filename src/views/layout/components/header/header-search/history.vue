@@ -32,6 +32,7 @@ const EMITS_ITEM_CLICK = 'handleClick'
 </script>
 <script setup>
 import { useStore } from 'vuex'
+import { confirm } from '@/libs'
 
 const store = useStore()
 const emits = defineEmits([EMITS_ITEM_CLICK])
@@ -46,7 +47,13 @@ const delHistory = (index) => {
 }
 // 删除单个
 const delHistoryAll = () => {
-  store.commit('search/delHistoryAll')
+  confirm('要删除所有历史记录么？')
+    .then(() => {
+      store.commit('search/delHistoryAll')
+    })
+    .catch(() => {
+      console.log('点击了取消')
+    })
 }
 </script>
 <style lang="scss"></style>
