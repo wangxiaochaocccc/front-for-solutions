@@ -4,7 +4,7 @@
   >
     <div class="flex items-center">
       <img
-        class="h-4 cursor-pointer mr-2 rounded-sm"
+        class="guide-home h-4 cursor-pointer mr-2 rounded-sm"
         src="/images/logo.jpeg"
         @click="onToHome"
       />

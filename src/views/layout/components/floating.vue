@@ -1,7 +1,8 @@
 <template>
   <div class="fixed bottom-10 right-2">
     <div
-      class="group h-4 w-4 rounded-full mb-1 bg-white dark:bg-zinc-800 border dark:border-0 flex justify-center items-center hover:shadow-lg"
+      class="guide-start group h-4 w-4 rounded-full mb-1 bg-white dark:bg-zinc-800 border dark:border-0 flex justify-center items-center hover:shadow-lg"
+      @click="onStartGuide"
     >
       <m-svg-icon
         name="guide"
@@ -12,7 +13,7 @@
     <m-popover class="flex items-center guide-feedback" placement="top-left">
       <template #reference>
         <div
-          class="w-4 h-4 bg-white dark:bg-zinc-900 border dark:border-0 border-zinc-200 rounded-full flex justify-center items-center cursor-pointer duration-200 group hover:shadow-lg"
+          class="guide-feedback w-4 h-4 bg-white dark:bg-zinc-900 border dark:border-0 border-zinc-200 rounded-full flex justify-center items-center cursor-pointer duration-200 group hover:shadow-lg"
         >
           <m-svg-icon
             name="feedback"
@@ -38,5 +39,29 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import Driver from 'driver.js'
+import 'driver.js/dist/driver.min.css'
+import { onMounted } from 'vue'
+import steps from './steps'
+
+// 初始化driver
+let driver = null
+onMounted(() => {
+  driver = new Driver({
+    allowClose: false, //禁止点击蒙层关闭
+    doneBtnText: '完成',
+    closeBtnText: '关闭',
+    nextBtnText: '下一步',
+    prevBtnText: '上一步'
+  })
+})
+// 点击引导按钮
+const onStartGuide = () => {
+  // 配置
+  driver.defineSteps(steps)
+  // 开始
+  driver.start()
+}
+</script>
 <style lang="scss"></style>

@@ -5,6 +5,7 @@ specifiers:
   '@vueuse/core': ^8.7.4
   autoprefixer: ^10.4.7
   axios: ^0.27.2
+  driver.js: ^0.9.8
   file-saver: ^2.0.5
   postcss: ^8.4.14
   prettier: ^2.7.1
@@ -21,6 +22,7 @@ specifiers:
 dependencies:
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/8.9.4_vue@3.2.37
   axios: registry.npmmirror.com/axios/0.27.2
+  driver.js: registry.npmmirror.com/driver.js/0.9.8
   file-saver: registry.npmmirror.com/file-saver/2.0.5
   vite-plugin-svg-icons: registry.npmmirror.com/vite-plugin-svg-icons/2.0.1_vite@2.9.15
   vue: registry.npmmirror.com/vue/3.2.37
@@ -862,6 +864,12 @@ packages:
       dom-serializer: registry.npmmirror.com/dom-serializer/1.4.1
       domelementtype: registry.npmmirror.com/domelementtype/2.3.0
       domhandler: registry.npmmirror.com/domhandler/4.3.1
+    dev: false
+
+  registry.npmmirror.com/driver.js/0.9.8:
+    resolution: {integrity: sha512-bczjyKdX6XmFyCDkwtRmlaORDwfBk1xXmRO0CAe5VwNQTM98aWaG2LAIiIdTe53iV/B7W5lXlIy2xYtf0JRb7Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/driver.js/-/driver.js-0.9.8.tgz}
+    name: driver.js
+    version: 0.9.8
     dev: false
 
   registry.npmmirror.com/electron-to-chromium/1.4.230:
