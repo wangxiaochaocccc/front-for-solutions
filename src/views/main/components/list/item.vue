@@ -1,5 +1,8 @@
 <template>
-  <div class="bg-white dark:bg-zinc-900 xl:dark:bg-zinc-800">
+  <div
+    class="bg-white dark:bg-zinc-900 xl:dark:bg-zinc-800"
+    @click="onToDetail"
+  >
     <div
       class="w-full overflow-auto rounded relative group"
       :style="{
@@ -84,5 +87,13 @@ const onLoad = () => {
 const imgRef = ref(null)
 
 const { enter: onFullImg } = useFullscreen(imgRef)
+
+const emits = defineEmits(['click'])
+// 点击图片进入详情
+const onToDetail = () => {
+  emits('click', {
+    id: props.data.id
+  })
+}
 </script>
 <style lang="scss"></style>

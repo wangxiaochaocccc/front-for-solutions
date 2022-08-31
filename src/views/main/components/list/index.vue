@@ -8,7 +8,7 @@
       nodeKey="id"
     >
       <template v-slot="{ item, width }">
-        <item-vue :data="item" :width="width"></item-vue>
+        <item-vue :data="item" :width="width" @click="onToDetails"></item-vue>
       </template>
     </m-waterfall>
   </m-infinite>
@@ -84,5 +84,10 @@ watch(
     })
   }
 )
+// 进入详情
+const onToDetails = (val) => {
+  // 主动接入浏览器堆栈管理，更新url(不跳转)
+  history.pushState(null, null, `/details/${val.id}`)
+}
 </script>
 <style lang="scss"></style>
