@@ -1,7 +1,7 @@
 <template>
   <div class="floating-box fixed bottom-10 right-2">
     <div
-      class="guide-start group h-4 w-4 rounded-full mb-1 bg-white dark:bg-zinc-800 border dark:border-0 flex justify-center items-center hover:shadow-lg"
+      class="guide-start group h-4 w-4 rounded-full mb-1 bg-white dark:bg-zinc-900 border dark:border-0 flex justify-center items-center hover:shadow-lg"
       @click="onStartGuide"
     >
       <m-svg-icon

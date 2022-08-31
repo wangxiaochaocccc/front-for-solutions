@@ -11,7 +11,7 @@
     </div>
     <div class="flex flex-wrap">
       <div
-        class="flex items-center px-1 py-0.5 text-sm font-bold rounded-sm bg-zinc-200 text-zinc-900 hover:bg-zinc-400 mr-2 mb-1 cursor-pointer"
+        class="flex items-center px-1 py-0.5 text-sm font-bold rounded-sm bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 text-zinc-900 hover:bg-zinc-400 mr-2 mb-1 cursor-pointer"
         v-for="(item, index) in $store.getters.historys"
         :key="item"
         @click="itemClick(item)"

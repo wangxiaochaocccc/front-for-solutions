@@ -48,7 +48,7 @@
       </div>
     </div>
     <!-- 标题 -->
-    <p class="text-sm font-bold mt-1">{{ data.title }}</p>
+    <p class="text-sm font-bold mt-1 dark:text-zinc-500">{{ data.title }}</p>
     <!-- 信息 -->
     <div class="flex items-center mt-1">
       <img class="w-2 h-2 rounded-full" :src="data.avatar" alt="" />
