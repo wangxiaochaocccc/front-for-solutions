@@ -33,8 +33,13 @@ module.exports = {
         'error-200': '#f3471c',
         'error-300': '#ffffff'
 
+      },
+      variants: {
+        scrollbar: ['dark']
       }
     }
   },
-  plugins: []
+  plugins: [
+    require('tailwind-scrollbar')
+  ]
 }

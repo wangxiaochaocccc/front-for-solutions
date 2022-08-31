@@ -34,7 +34,7 @@
         <div
           v-if="$slots.dropdown"
           v-show="isFocus"
-          class="max-h-[368px] w-full rounded absolute top-[56px] left-0 z-20 bg-white dark:bg-zinc-900 dark:border-zinc-600 overflow-auto text-base p-2 border border-zinc-200 hover:shadow-3xl duration-200"
+          class="max-h-[368px] w-full rounded absolute top-[56px] left-0 z-20 bg-white dark:bg-zinc-900 dark:border-zinc-600 overflow-auto text-base p-2 border border-zinc-200 hover:shadow-3xl duration-200 scrollbar-thin scrollbar-thumb-transparent xl:scrollbar-thumb-zinc-200 xl:dark:scrollbar-thumb-zinc-900 scrollbar-track-transparent"
         >
           <slot name="dropdown" />
         </div>
