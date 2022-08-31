@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed bottom-10 right-2">
+  <div class="floating-box fixed bottom-10 right-2">
     <div
       class="guide-start group h-4 w-4 rounded-full mb-1 bg-white dark:bg-zinc-800 border dark:border-0 flex justify-center items-center hover:shadow-lg"
       @click="onStartGuide"
@@ -64,4 +64,9 @@ const onStartGuide = () => {
   driver.start()
 }
 </script>
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.driver-fix-stacking {
+  position: fixed !important;
+  z-index: 100004 !important;
+}
+</style>
