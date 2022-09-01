@@ -15,5 +15,10 @@ export default [
     path: '/details/:id',
     name: 'Detail',
     component: () => import('@/views/details/index.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login-register/login.vue')
   }
 ]
