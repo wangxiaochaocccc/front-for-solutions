@@ -17,7 +17,7 @@
       </slot>
     </div>
     <!-- 中 -->
-    <div class="h-full flex items-center text-base font-bold">
+    <div class="h-full flex items-center text-base font-bold mx-auto">
       <slot></slot>
     </div>
     <!-- 右 -->
@@ -31,7 +31,11 @@
 </template>
 
 <script setup>
-const props = defineExpose({
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const props = defineProps({
   // 是否吸顶
   sticky: {
     type: Boolean,
@@ -51,7 +55,11 @@ const onClickRight = () => {
   props?.clickRight?.()
 }
 const onClickLeft = () => {
-  props?.clickLeft?.()
+  if (props.clickLeft) {
+    props.clickLeft()
+    return
+  }
+  router.back()
 }
 </script>
 <style lang="scss"></style>

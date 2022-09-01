@@ -2,7 +2,7 @@
  * @Author: wangchao
  * @Date: 2022-08-28 21:32:08
  * @LastEditors: wangchao
- * @LastEditTime: 2022-08-30 17:21:52
+ * @LastEditTime: 2022-09-01 14:01:58
  * @Description: 
  */
 import request from '@/utils/request'
@@ -25,5 +25,13 @@ export const getHint = (q) => {
 export const getThemes = () => {
   return request({
     url: '/pexels/themes',
+  })
+}
+/**
+ * 获取指定图片数据
+ */
+export const getPexelsFromId = (id) => {
+  return request({
+    url: `/pexels/${id}`
   })
 }
