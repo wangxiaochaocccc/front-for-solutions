@@ -7,6 +7,7 @@ specifiers:
   axios: ^0.27.2
   driver.js: ^0.9.8
   file-saver: ^2.0.5
+  gsap: ^3.11.0
   postcss: ^8.4.14
   prettier: ^2.7.1
   sass: ^1.52.3
@@ -24,6 +25,7 @@ dependencies:
   axios: registry.npmmirror.com/axios/0.27.2
   driver.js: registry.npmmirror.com/driver.js/0.9.8
   file-saver: registry.npmmirror.com/file-saver/2.0.5
+  gsap: registry.npmmirror.com/gsap/3.11.0
   vite-plugin-svg-icons: registry.npmmirror.com/vite-plugin-svg-icons/2.0.1_vite@2.9.15
   vue: registry.npmmirror.com/vue/3.2.37
   vue-router: registry.npmmirror.com/vue-router/4.1.4_vue@3.2.37
@@ -1352,6 +1354,12 @@ packages:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/graceful-fs/-/graceful-fs-4.2.10.tgz}
     name: graceful-fs
     version: 4.2.10
+    dev: false
+
+  registry.npmmirror.com/gsap/3.11.0:
+    resolution: {integrity: sha512-TV5aFGqXht+0o/CelnhCikSe3QGeG+q1XA/fyFFsMzesILHgWgFWIz0NuXIgcMaL5h7MG2l+j0BTupS5YyYkrw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/gsap/-/gsap-3.11.0.tgz}
+    name: gsap
+    version: 3.11.0
     dev: false
 
   registry.npmmirror.com/has-ansi/2.0.0:

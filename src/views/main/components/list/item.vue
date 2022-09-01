@@ -64,8 +64,12 @@
 import { randomRGB } from '@/utils/color'
 import { saveAs } from 'file-saver'
 import { message } from '@/libs'
-import { ref } from 'vue'
-import { useFullscreen } from '@vueuse/core'
+import { ref, computed } from 'vue'
+import {
+  useFullscreen,
+  useElementBounding,
+  useEventListener
+} from '@vueuse/core'
 
 const props = defineProps({
   data: {
@@ -92,8 +96,27 @@ const emits = defineEmits(['click'])
 // 点击图片进入详情
 const onToDetail = () => {
   emits('click', {
-    id: props.data.id
+    id: props.data.id,
+    localtion: imgContainerCenter.value
   })
 }
+
+/**
+ * @description: 记录点击图片的中心点
+ * @return {*}
+ */
+
+const {
+  x: imgContainerX,
+  y: imgContainerY,
+  width: imgContainerWidth,
+  height: imgContainerHeight
+} = useElementBounding(imgRef)
+const imgContainerCenter = computed(() => {
+  return {
+    translateX: parseInt(imgContainerX.value + imgContainerWidth.value / 2),
+    translateY: parseInt(imgContainerY.value + imgContainerHeight.value / 2)
+  }
+})
 </script>
 <style lang="scss"></style>

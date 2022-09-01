@@ -12,6 +12,15 @@
       </template>
     </m-waterfall>
   </m-infinite>
+
+  <transition
+    :css="false"
+    @before-enter="beforeEnter"
+    @enter="Enter"
+    @leave="Leave"
+  >
+    <details-vue :id="parseInt(curDetail.id)" v-if="isVisibleDetail" />
+  </transition>
 </template>
 
 <script setup>
@@ -20,6 +29,9 @@ import itemVue from './item.vue'
 import { getPexels } from '@/api/pexels'
 import { isMobileTerinal } from '@/utils/flexble'
 import { useStore } from 'vuex'
+import DetailsVue from '@/views/details/components/detail.vue'
+import { useEventListener } from '@vueuse/core'
+import gsap from 'gsap'
 
 const store = useStore()
 // 参数
@@ -85,9 +97,51 @@ watch(
   }
 )
 // 进入详情
+const isVisibleDetail = ref(false)
+const curDetail = ref(null)
 const onToDetails = (val) => {
   // 主动接入浏览器堆栈管理，更新url(不跳转)
   history.pushState(null, null, `/details/${val.id}`)
+  curDetail.value = val
+  isVisibleDetail.value = true
 }
+
+const beforeEnter = (el) => {
+  gsap.set(el, {
+    scaleX: 0,
+    scaleY: 0,
+    transformOrigin: '0 0',
+    translateX: curDetail.value.localtion?.translateX,
+    translateY: curDetail.value.localtion?.translateY,
+    opacity: 0
+  })
+}
+const Enter = (el, down) => {
+  gsap.to(el, {
+    scaleX: 1,
+    scaleY: 1,
+    translateX: 0,
+    translateY: 0,
+    opacity: 1,
+    duration: 0.5,
+    onComplete: down
+  })
+}
+
+const Leave = (el, done) => {
+  gsap.to(el, {
+    duration: 0.3,
+    scaleX: 0,
+    scaleY: 0,
+    x: curDetail.value.localtion?.translateX,
+    y: curDetail.value.localtion?.translateY,
+    opacity: 0
+  })
+}
+
+// 监听浏览器后退行为
+useEventListener(window, 'popstate', () => {
+  isVisibleDetail.value = false
+})
 </script>
 <style lang="scss"></style>
