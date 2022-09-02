@@ -51,11 +51,19 @@
       </div>
     </div>
   </div>
+  <slide-captcha
+    v-if="isVisibleCaptcha"
+    @close="isVisibleCaptcha = false"
+    @success="onCaptchaSuccess"
+  ></slide-captcha>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router'
 import { validatePass, validateName } from './validate'
+import SlideCaptcha from './slide-captcha.vue'
+import { ref } from 'vue'
+
 import {
   Field as VeeField,
   Form as VeeForm,
@@ -69,7 +77,14 @@ const onToRigister = () => {
 
 // 登录
 const onHandleLogin = () => {
+  isVisibleCaptcha.value = true
   console.log(111)
+}
+
+const isVisibleCaptcha = ref(false)
+const onCaptchaSuccess = () => {
+  isVisibleCaptcha.value = false
+  console.log('触发登陆')
 }
 </script>
 <style lang="scss"></style>
