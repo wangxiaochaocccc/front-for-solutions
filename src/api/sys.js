@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-// 获取分类接口
+// 验证码
 export const getCaptcha = (data) => {
   return request({
     url: '/sys/captcha',
@@ -14,5 +14,11 @@ export const loginUser = (data) => {
     url: '/sys/login',
     method: "POST",
     data
+  })
+}
+// 获取用户信息
+export const getProfile = () => {
+  return request({
+    url: '/user/profile'
   })
 }
