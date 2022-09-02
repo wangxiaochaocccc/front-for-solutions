@@ -39,3 +39,6 @@ export const THEME_LIGHT = 'light'
 export const THEME_SYSTEM = 'system'
 // 延迟时间
 export const DELAY_TIME = 100
+
+// 登录类型
+export const LOGIN_TYPE_USERNAME = 'username'
