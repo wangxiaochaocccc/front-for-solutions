@@ -79,6 +79,7 @@ import {
   defineRule
 } from 'vee-validate'
 import { useStore } from 'vuex'
+import { LOGIN_TYPE_USERNAME } from '@/constant/'
 
 const store = useStore()
 const router = useRouter()
@@ -97,9 +98,22 @@ const regParams = ref({
 
 // 注册
 const loading = ref(false)
-const onHandleRedister = () => {
+const onHandleRedister = async () => {
   loading.value = true
-  console.log(111)
+  const curParams = {
+    password: regParams.value.password,
+    username: regParams.value.username
+  }
+  try {
+    await store.dispatch('user/register', curParams)
+    await store.dispatch('user/login', {
+      ...curParams,
+      loginType: LOGIN_TYPE_USERNAME
+    })
+  } finally {
+    loading.value = false
+  }
+  router.push('/')
 }
 // 插入规则
 defineRule('validateConfirmPassword', validateConfirmPassword)
