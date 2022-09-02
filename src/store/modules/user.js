@@ -32,8 +32,14 @@ export default {
     async profile (context) {
       await getProfile().then(res => {
         context.commit('setUserinfo', res)
-        message('success', `欢迎您 ${res.vipLevel ? '尊贵的VIP' + res.vipLevel + '用户' + res.nickname : res.nickname}`, 6000)
+        message('success', `欢迎您 ${res.vipLevel ?
+          '尊贵的VIP' + res.vipLevel + '用户' + res.nickname : res.nickname}`, 6000)
       })
+    },
+    logout (context) {
+      context.commit('setToken', '')
+      context.commit('setUserinfo', {})
+      location.reload()
     }
   }
 }
