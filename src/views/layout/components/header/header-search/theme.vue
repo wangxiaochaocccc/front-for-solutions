@@ -10,7 +10,7 @@
       >
         <img
           v-lazy
-          :src="themeData.big.photp"
+          :src="themeData.big.photo"
           class="w-full h-full object-cover rounded"
         />
         <p
