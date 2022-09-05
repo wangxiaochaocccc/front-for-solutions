@@ -29,6 +29,7 @@ import Cropper from 'cropperjs'
 import 'cropperjs/dist/cropper.css'
 import { message } from '@/libs'
 import { useStore } from 'vuex'
+import { putProfile } from '@/api/sys'
 
 const store = useStore()
 
@@ -100,10 +101,21 @@ const putImgToOSS = async (file) => {
     }`
     // 上传
     const res = await ossClient.put(`images/${fileName}`, file)
-    console.log(res)
+    updateAvatar(res)
   } catch (err) {
     message('error', err)
   }
+}
+// 更新新头像
+const updateAvatar = async (avatar) => {
+  store.commit('user/setUserinfo', {
+    ...store.getters.userInfo,
+    avatar: avatar.url
+  })
+  await putProfile(store.getters.userInfo)
+  loading.value = false
+  close()
+  message('success', '用户头像修改成功')
 }
 </script>
 <style lang="scss"></style>
