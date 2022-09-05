@@ -96,8 +96,8 @@ const onCaptchaSuccess = () => {
 }
 // 登录信息
 const loginParams = ref({
-  password: '123123',
-  username: 'LGD_Sunday'
+  password: '392985547Wc',
+  username: 'wangxiaochao'
 })
 // 用户登录行为
 const loading = ref(false)

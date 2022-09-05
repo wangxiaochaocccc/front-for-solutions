@@ -65,7 +65,7 @@
           <m-input
             class="w-full"
             type="text"
-            v-model="$store.getters.userInfo.nickname"
+            v-model="userInfo.nickname"
           ></m-input>
         </div>
         <!-- 职位 -->
@@ -78,7 +78,7 @@
           <m-input
             class="w-full"
             type="text"
-            v-model="$store.getters.userInfo.title"
+            v-model="userInfo.title"
           ></m-input>
         </div>
         <!-- 公司 -->
@@ -91,7 +91,7 @@
           <m-input
             class="w-full"
             type="text"
-            v-model="$store.getters.userInfo.company"
+            v-model="userInfo.company"
           ></m-input>
         </div>
         <!-- 个人主页 -->
@@ -104,7 +104,7 @@
           <m-input
             class="w-full"
             type="text"
-            v-model="$store.getters.userInfo.homePage"
+            v-model="userInfo.homePage"
           ></m-input>
         </div>
         <!-- 个人介绍 -->
@@ -118,12 +118,14 @@
             class="w-full"
             type="textarea"
             max="50"
-            v-model="$store.getters.userInfo.introduction"
+            v-model="userInfo.introduction"
           ></m-input>
         </div>
 
         <m-button
           class="w-full mt-2 mb-4 dark:text-zinc-300 dark:bg-zinc-800 xl:w-[160px] xl:ml-[50%] xl:translate-x-[-50%]"
+          @click="onHandlePutProfile"
+          :isLoading="loading"
         >
           保存修改
         </m-button>
@@ -145,6 +147,8 @@ import { useStore } from 'vuex'
 import { confirm } from '@/libs'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { putProfile } from '@/api/sys'
+import { message } from '@/libs'
 
 const store = useStore()
 const router = useRouter()
@@ -162,6 +166,24 @@ const onHandleChangeImg = () => {
 // 返回
 const clickLeft = () => {
   router.back()
+}
+
+const userInfo = ref(store.getters.userInfo)
+// // 本地数据双向绑定
+// const changeUserInfo = (key, val) => {
+//   store.commit('user/setUserinfo', {
+//     ...store.getters.userInfo,
+//     [key]: val
+//   })
+// }
+// 保存修改
+const loading = ref(false)
+const onHandlePutProfile = async () => {
+  loading.value = true
+  await putProfile(userInfo.value)
+  message('success', '修改成功')
+  store.commit('user/setUserinfo', userInfo.value)
+  loading.value = false
 }
 </script>
 <style lang="scss"></style>
