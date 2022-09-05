@@ -1,5 +1,5 @@
 <template>
-  <transition name="down">
+  <transition name="down" @after-leave="destroy">
     <div
       v-if="isVisible"
       class="flex items-center py-1 px-3 text-sm min-w-[420px] fixed top-[20px] left-[50%] translate-x-[-50%] z-50 rounded"
@@ -91,7 +91,7 @@ onMounted(() => {
   }, props.duration)
 })
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .down-enter-active,
 .down-leave-active {
   transition: all 0.5s;
