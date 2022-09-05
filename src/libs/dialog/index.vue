@@ -90,7 +90,7 @@ const close = () => {
   props?.close?.()
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.3s;

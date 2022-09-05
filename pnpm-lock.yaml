@@ -5,6 +5,7 @@ specifiers:
   '@vueuse/core': ^8.7.4
   autoprefixer: ^10.4.7
   axios: ^0.27.2
+  cropperjs: 1.5.12
   driver.js: ^0.9.8
   file-saver: ^2.0.5
   gsap: ^3.11.0
@@ -25,6 +26,7 @@ specifiers:
 dependencies:
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/8.9.4_vue@3.2.37
   axios: registry.npmmirror.com/axios/0.27.2
+  cropperjs: registry.npmmirror.com/cropperjs/1.5.12
   driver.js: registry.npmmirror.com/driver.js/0.9.8
   file-saver: registry.npmmirror.com/file-saver/2.0.5
   gsap: registry.npmmirror.com/gsap/3.11.0
@@ -643,6 +645,12 @@ packages:
     dependencies:
       object-assign: registry.npmmirror.com/object-assign/4.1.1
       vary: registry.npmmirror.com/vary/1.1.2
+    dev: false
+
+  registry.npmmirror.com/cropperjs/1.5.12:
+    resolution: {integrity: sha512-re7UdjE5UnwdrovyhNzZ6gathI4Rs3KGCBSc8HCIjUo5hO42CtzyblmWLj6QWVw7huHyDMfpKxhiO2II77nhDw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/cropperjs/-/cropperjs-1.5.12.tgz}
+    name: cropperjs
+    version: 1.5.12
     dev: false
 
   registry.npmmirror.com/crypt/0.0.2:

@@ -147,11 +147,7 @@
     ></change-avatar>
   </m-dialog>
 
-  <m-popup
-    v-else
-    v-model="isDialogVisible"
-    :class="{ 'h-screen': isMobileTerinal }"
-  >
+  <m-popup v-else v-model="isDialogVisible">
     <change-avatar
       :blob="curBlob"
       @close="isDialogVisible = false"
