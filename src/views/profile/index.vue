@@ -50,6 +50,7 @@
             ref="inputTarget"
             v-show="false"
             accept=".jpg,.jpeg,.png,.gif"
+            @change="onInputChange"
           />
           <p class="text-xs text-zinc-400 xl:w-10">
             支持 jpg、png、jpeg 格式大小 5M 以内的图片
@@ -139,16 +140,34 @@
       </div>
     </div>
   </div>
+  <m-dialog v-if="!isMobileTerinal" title="裁剪图片" v-model="isDialogVisible">
+    <change-avatar
+      :blob="curBlob"
+      @close="isDialogVisible = false"
+    ></change-avatar>
+  </m-dialog>
+
+  <m-popup
+    v-else
+    v-model="isDialogVisible"
+    :class="{ 'h-screen': isMobileTerinal }"
+  >
+    <change-avatar
+      :blob="curBlob"
+      @close="isDialogVisible = false"
+    ></change-avatar>
+  </m-popup>
 </template>
 
 <script setup>
 import { isMobileTerinal } from '@/utils/flexble'
 import { useStore } from 'vuex'
 import { confirm } from '@/libs'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { putProfile } from '@/api/sys'
 import { message } from '@/libs'
+import ChangeAvatar from './components/change-avatar.vue'
 
 const store = useStore()
 const router = useRouter()
@@ -185,5 +204,21 @@ const onHandlePutProfile = async () => {
   store.commit('user/setUserinfo', userInfo.value)
   loading.value = false
 }
+// 选择图片回调
+const isDialogVisible = ref(false) //是否显示diallog
+const curBlob = ref('') //图片回显地址
+const onInputChange = () => {
+  // 获取上传的图片
+  const imgValue = inputTarget.value.files[0]
+  // 生成blob
+  curBlob.value = URL.createObjectURL(imgValue)
+  isDialogVisible.value = true
+}
+// 当关闭dialog时，清空选择的图片
+watch(isDialogVisible, (val) => {
+  if (!val) {
+    inputTarget.value.value = null
+  }
+})
 </script>
 <style lang="scss"></style>

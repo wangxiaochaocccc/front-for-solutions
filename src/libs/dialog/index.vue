@@ -9,7 +9,7 @@
   <transition name="up">
     <div
       v-if="isVisible"
-      class="max-w-[80%] max-h-[80%] fixed top-[20%] left-[50%] translate-x-[-50%] z-50 px-2 py-1.5 rounded bg-white dark:bg-zinc-600 xl:min-w-[35%]"
+      class="max-w-[80%] max-h-[80%] fixed top-[10%] left-[50%] translate-x-[-50%] z-50 px-2 py-1.5 rounded bg-white dark:bg-zinc-600 xl:min-w-[35%] overflow-auto"
     >
       <!-- 标题 -->
       <div
@@ -23,7 +23,7 @@
         <slot></slot>
       </div>
       <!-- 按钮 -->
-      <div class="flex justify-end" v-if="confimText || cancelText">
+      <div class="flex justify-end" v-if="confirmHandle || cancelHandle">
         <m-button type="info" @click="onCancelHandle" class="mr-2">
           {{ cancelText }}
         </m-button>
@@ -41,7 +41,7 @@ import { useVModel } from '@vueuse/core'
 const props = defineProps({
   // 是否显示
   modelValue: {
-    type: String,
+    type: Boolean,
     required: true
   },
   // 标题
@@ -93,7 +93,7 @@ const close = () => {
 <style lang="scss">
 .fade-enter-active,
 .fade-leave-active {
-  transition: all v-bind(duration);
+  transition: all 0.3s;
 }
 .fade-enter-from,
 .fade-leave-to {
@@ -102,7 +102,7 @@ const close = () => {
 
 .up-enter-active,
 .up-leave-active {
-  transition: all v-bind(duration);
+  transition: all 0.3s;
 }
 
 .up-enter-from,
