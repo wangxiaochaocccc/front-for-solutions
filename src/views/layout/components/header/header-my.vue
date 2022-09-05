@@ -88,6 +88,8 @@ const onItemClick = (item) => {
   if (item.id === 2) {
     //退出登录
     store.dispatch('user/logout')
+  } else if (item.id === 0) {
+    router.push('/profile')
   }
 }
 </script>

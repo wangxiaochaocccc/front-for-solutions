@@ -8,6 +8,11 @@ export default [
         path: '',
         name: 'home',
         component: () => import('@/views/main/index.vue')
+      },
+      {
+        path: '/profile',
+        name: 'Profile',
+        component: () => import('@/views/profile/index.vue')
       }
     ]
   },

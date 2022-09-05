@@ -1,7 +1,7 @@
 <template>
   <div
     class="w-full h-5 flex justify-between bg-white dark:bg-zinc-800 border-b"
-    :class="[sticky ? 'absolute top-0 left-0' : 'relative']"
+    :class="[sticky ? 'sticky top-0 left-0 z-50' : 'relative']"
   >
     <!-- 左 -->
     <div
@@ -17,7 +17,9 @@
       </slot>
     </div>
     <!-- 中 -->
-    <div class="h-full flex items-center text-base font-bold mx-auto">
+    <div
+      class="h-full flex items-center text-base font-bold mx-auto dark:text-zinc-300"
+    >
       <slot></slot>
     </div>
     <!-- 右 -->

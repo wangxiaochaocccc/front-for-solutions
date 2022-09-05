@@ -19,6 +19,7 @@
     />
     <!-- 超出限制 -->
     <span
+      v-if="max"
       class="text-xs absolute right-1 bottom-0.5"
       :class="{ 'text-red-500': curTextLength >= parseInt(max) }"
     >
