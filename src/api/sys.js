@@ -38,3 +38,9 @@ export const putProfile = (data) => {
     data
   })
 }
+// 获取上传凭证
+export const getSts = () => {
+  return request({
+    url: '/user/sts'
+  })
+}

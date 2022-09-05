@@ -24,9 +24,13 @@ const EMITS_CLOSE = 'close'
 <script setup>
 import { isMobileTerinal } from '@/utils/flexble'
 import { ref, onMounted } from 'vue'
-
+import { getOSSClient } from '@/utils/sts'
 import Cropper from 'cropperjs'
 import 'cropperjs/dist/cropper.css'
+import { message } from '@/libs'
+import { useStore } from 'vuex'
+
+const store = useStore()
 
 defineProps({
   blob: {
@@ -80,8 +84,26 @@ const onHandleConfirm = () => {
   // 获取裁剪后的图片
   cropper.getCroppedCanvas().toBlob((blob) => {
     // 裁剪后的 blob 地址
-    console.log(URL.createObjectURL(blob))
+    putImgToOSS(blob)
   })
+}
+// 上传操作
+let ossClient
+const putImgToOSS = async (file) => {
+  if (!ossClient) {
+    ossClient = await getOSSClient()
+  }
+  try {
+    const fileArr = file.type.split('/')
+    const fileName = `${store.getters.userInfo.username}/${Date.now()}.${
+      fileArr[fileArr.length - 1]
+    }`
+    // 上传
+    const res = await ossClient.put(`images/${fileName}`, file)
+    console.log(res)
+  } catch (err) {
+    message('error', err)
+  }
 }
 </script>
 <style lang="scss"></style>
