@@ -2,7 +2,7 @@
   <transition name="down" @after-leave="destroy">
     <div
       v-if="isVisible"
-      class="flex items-center py-1 px-3 text-sm min-w-[420px] fixed top-[20px] left-[50%] translate-x-[-50%] z-50 rounded"
+      class="flex items-center py-1 px-3 text-sm w-[80%] xl:max-w-[420px] fixed top-[20px] left-[50%] translate-x-[-50%] z-50 rounded"
       :class="styles[type].containerClass"
     >
       <m-svg-icon
