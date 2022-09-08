@@ -36,7 +36,11 @@
     </m-trigger-menu>
   </div>
 </template>
-
+<script>
+export default {
+  name: 'home'
+}
+</script>
 <script setup>
 import navigationPage from './components/navigation/index.vue'
 import listVue from './components/list/index.vue'

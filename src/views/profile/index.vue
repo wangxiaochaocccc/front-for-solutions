@@ -52,7 +52,7 @@
             accept=".jpg,.jpeg,.png,.gif"
             @change="onInputChange"
           />
-          <p class="text-xs text-zinc-400 xl:w-10">
+          <p class="text-xs text-zinc-400 xl:w-10 mb-1">
             支持 jpg、png、jpeg 格式大小 5M 以内的图片
           </p>
         </div>
