@@ -90,6 +90,7 @@ const onItemClick = (item) => {
     store.dispatch('user/logout')
     return
   } else if (item.id === 0) {
+    store.commit('app/changeRouterType', 'push')
     router.push('/profile')
   }
 }

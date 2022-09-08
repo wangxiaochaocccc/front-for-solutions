@@ -80,7 +80,9 @@ import { getPexelsFromId } from '@/api/pexels'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { isMobileTerinal } from '@/utils/flexble'
+import { useStore } from 'vuex'
 
+const store = useStore()
 const router = useRouter()
 
 const props = defineProps({
@@ -100,6 +102,7 @@ getData()
 
 // 关闭
 const onPop = () => {
+  store.commit('app/changeRouterType', 'back')
   router.back()
 }
 </script>

@@ -1,4 +1,4 @@
-import { getBaseTransformPreset } from '@vue/compiler-core'
+import { isMobileTerinal } from '@/utils/flexble'
 
 export default {
   categorys: (state) => state.category.categorys,
@@ -18,5 +18,12 @@ export default {
   // token
   token: (state) => state.user.token,
   // 用户信息
-  userInfo: (state) => state.user.userInfo
+  userInfo: (state) => state.user.userInfo,
+  // 路由类型
+  routerType: (state) => {
+    if (!isMobileTerinal.value) {
+      return 'none'
+    }
+    return state.app.routerType
+  }
 }

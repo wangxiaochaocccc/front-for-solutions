@@ -80,6 +80,7 @@ const store = useStore()
 const router = useRouter()
 
 const onToRigister = () => {
+  store.commit('app/changeRouterType', 'push')
   router.push('/register')
 }
 

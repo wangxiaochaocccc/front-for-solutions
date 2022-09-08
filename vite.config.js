@@ -1,10 +1,3 @@
-/*
- * @Author: wangchao
- * @Date: 2022-08-27 23:14:43
- * @LastEditors: wangchao
- * @LastEditTime: 2022-09-02 10:34:59
- * @Description: 
- */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path, { join } from 'path'
@@ -28,7 +21,7 @@ export default defineConfig({
   },
   server: {
     // 配置代理
-
+    // port: 3001,
     proxy: {
       '/api': {
         target: 'https://api.imooc-front.lgdsunday.club', //目标地址

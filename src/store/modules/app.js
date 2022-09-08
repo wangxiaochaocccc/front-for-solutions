@@ -6,7 +6,9 @@ export default {
   state: () => ({
     curCategory: ALL_CATEGORY,
     // 搜索文本
-    searchText: ''
+    searchText: '',
+    // 路由类型 后退和前进
+    routerType: 'none'
   }),
   mutations: {
     // curCategory
@@ -16,6 +18,9 @@ export default {
     // 修改搜索文本
     changeSearchText (state, newSeachText) {
       state.searchText = newSeachText
+    },
+    changeRouterType (state, newRouterType) {
+      state.routerType = newRouterType
     }
   }
 }

@@ -139,20 +139,24 @@
         </m-button>
       </div>
     </div>
-  </div>
-  <m-dialog v-if="!isMobileTerinal" title="裁剪图片" v-model="isDialogVisible">
-    <change-avatar
-      :blob="curBlob"
-      @close="isDialogVisible = false"
-    ></change-avatar>
-  </m-dialog>
+    <m-dialog
+      v-if="!isMobileTerinal"
+      title="裁剪图片"
+      v-model="isDialogVisible"
+    >
+      <change-avatar
+        :blob="curBlob"
+        @close="isDialogVisible = false"
+      ></change-avatar>
+    </m-dialog>
 
-  <m-popup v-else v-model="isDialogVisible">
-    <change-avatar
-      :blob="curBlob"
-      @close="isDialogVisible = false"
-    ></change-avatar>
-  </m-popup>
+    <m-popup v-else v-model="isDialogVisible">
+      <change-avatar
+        :blob="curBlob"
+        @close="isDialogVisible = false"
+      ></change-avatar>
+    </m-popup>
+  </div>
 </template>
 
 <script setup>
@@ -180,6 +184,7 @@ const onHandleChangeImg = () => {
 }
 // 返回
 const clickLeft = () => {
+  store.commit('app/changeRouterType', 'back')
   router.back()
 }
 

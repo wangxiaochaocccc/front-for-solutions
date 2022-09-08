@@ -86,6 +86,7 @@ const router = useRouter()
 
 // 去登录
 const onToLogin = () => {
+  store.commit('app/changeRouterType', 'push')
   router.push('/login')
 }
 
