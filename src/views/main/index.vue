@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="containerTarget"
     class="h-full overflow-auto bg-white dark:bg-zinc-800 duration-300 scrollbar-thin scrollbar-thumb-transparent xl:scrollbar-thumb-zinc-200 xl:dark:scrollbar-thumb-zinc-900 scrollbar-track-transparent"
   >
     <navigation-page />
@@ -47,6 +48,8 @@ import listVue from './components/list/index.vue'
 import { isMobileTerinal } from '@/utils/flexble'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import { onActivated, ref } from 'vue'
+import { useScroll } from '@vueuse/core'
 
 const store = useStore()
 const router = useRouter()
@@ -56,5 +59,15 @@ const onMyClick = () => {
   store.getters.token ? router.push('/profile') : router.push('/login')
 }
 const onVipClcik = () => {}
+
+// 记录页面滚动位置
+const containerTarget = ref(null)
+const { y: containerTargetY } = useScroll(containerTarget)
+
+// 滚动到之前位置
+onActivated(() => {
+  if (!containerTarget.value) return
+  containerTarget.value.scrollTop = containerTargetY.value
+})
 </script>
 <style lang="scss"></style>
