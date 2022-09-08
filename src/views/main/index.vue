@@ -58,7 +58,10 @@ const onMyClick = () => {
   store.commit('app/changeRouterType', 'push')
   store.getters.token ? router.push('/profile') : router.push('/login')
 }
-const onVipClcik = () => {}
+const onVipClcik = () => {
+  store.commit('app/changeRouterType', 'push')
+  router.push('/member')
+}
 
 // 记录页面滚动位置
 const containerTarget = ref(null)
