@@ -17,7 +17,7 @@ import { onUnmounted, watch, computed, ref } from 'vue'
 
 const props = defineProps({
   time: {
-    type: String,
+    type: Number,
     required: true
   },
   format: {

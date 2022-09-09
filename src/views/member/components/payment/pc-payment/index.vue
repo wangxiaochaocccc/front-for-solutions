@@ -26,6 +26,6 @@
 </template>
 
 <script setup>
-import DiscountVue from './discount.vue'
+import DiscountVue from '../discount.vue'
 </script>
 <style lang="scss"></style>
