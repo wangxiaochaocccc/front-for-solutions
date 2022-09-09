@@ -24,7 +24,9 @@
         class="hidden opacity-0 w-full h-full absolute top-0 left-0 bg-zinc-900/50 rounded duration-300 group-hover:opacity-100 xl:block"
       >
         <!-- 分享 -->
-        <m-button class="absolute top-1.5 left-1.5">分享</m-button>
+        <m-button class="absolute top-1.5 left-1.5" @click="onShareClick">
+          分享
+        </m-button>
         <!-- 点赞 -->
         <m-button
           class="absolute top-1.5 right-1.5"
@@ -65,6 +67,7 @@ import { randomRGB } from '@/utils/color'
 import { saveAs } from 'file-saver'
 import { message } from '@/libs'
 import { ref, computed } from 'vue'
+import { weiboShare } from '@/utils/share'
 import {
   useFullscreen,
   useElementBounding,
@@ -118,5 +121,13 @@ const imgContainerCenter = computed(() => {
     translateY: parseInt(imgContainerY.value + imgContainerHeight.value / 2)
   }
 })
+
+// 分享
+const onShareClick = () => {
+  weiboShare(
+    props.data.photo,
+    `https://imooc-front.lgdsunday.club/pins/${props.data.id}`
+  )
+}
 </script>
 <style lang="scss"></style>

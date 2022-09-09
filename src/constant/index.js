@@ -50,4 +50,8 @@ export const BUCKET = 'imooc-front'
 export const LOGIN_TYPE_OAUTH_NO_REGISTER_CODE = 204
 export const LOGIN_TYPE_QQ = 'QQ'
 export const LOGIN_TYPE_WX = 'WX'
+// 微博APP Key
+export const WEI_BO_APP_KEY = '3454329089'
+// 微博用户的 UID
+export const WEI_BO_UID = '5984245953'
 
