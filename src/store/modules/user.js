@@ -1,6 +1,7 @@
 import { loginUser, getProfile, registerUser } from '@/api/sys'
 import md5 from 'md5'
 import { message } from '@/libs'
+import { LOGIN_TYPE_OAUTH_NO_REGISTER_CODE } from '@/constant'
 
 export default {
   namespaced: true,
@@ -24,6 +25,10 @@ export default {
         ...payload,
         password: password ? md5(password) : ''
       }).then((res) => {
+        // 扫码登录未注册时
+        if (res.code === LOGIN_TYPE_OAUTH_NO_REGISTER_CODE) {
+          return res.code
+        }
         context.commit('setToken', res.token)
         context.dispatch('profile')
       })

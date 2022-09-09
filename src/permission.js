@@ -1,5 +1,6 @@
 import router from '@/router'
 import store from '@/store'
+import { message } from '@/libs'
 
 router.beforeEach((to, form) => {
   // 无需登录直接进入

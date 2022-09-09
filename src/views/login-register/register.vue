@@ -69,7 +69,7 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { validatePass, validateName, validateConfirmPassword } from './validate'
 import { ref } from 'vue'
 import {
@@ -83,6 +83,7 @@ import { LOGIN_TYPE_USERNAME } from '@/constant/'
 
 const store = useStore()
 const router = useRouter()
+const route = useRoute()
 
 // 去登录
 const onToLogin = () => {
@@ -106,7 +107,10 @@ const onHandleRedister = async () => {
     username: regParams.value.username
   }
   try {
-    await store.dispatch('user/register', curParams)
+    await store.dispatch('user/register', {
+      ...curParams,
+      ...route.query
+    })
     await store.dispatch('user/login', {
       ...curParams,
       loginType: LOGIN_TYPE_USERNAME

@@ -92,6 +92,9 @@ const onItemClick = (item) => {
   } else if (item.id === 0) {
     store.commit('app/changeRouterType', 'push')
     router.push('/profile')
+  } else {
+    store.commit('app/changeRouterType', 'push')
+    router.push('/member')
   }
 }
 </script>

@@ -8,6 +8,7 @@ import MyLibs from './libs/index'
 import MyDirectives from './directives'
 import useTheme from '@/utils/theme'
 import 'virtual:svg-icons-register'
+import './permission'
 
 useRem() //动态计算fontsize
 useTheme()
