@@ -12,7 +12,7 @@
         19
       </p>
 
-      <div class="flex mt-3">
+      <div class="flex mt-3" @click="onAliPayClick">
         <!-- 支付宝支付 -->
         <div
           class="border border-zinc-200 dark:border-zinc-600 rounded-sm w-[220px] h-[60px] flex items-center pl-2 cursor-pointer duration-200 hover:bg-zinc-50 hover:dark:bg-zinc-800"
@@ -27,5 +27,17 @@
 
 <script setup>
 import DiscountVue from '../discount.vue'
+import { alipay } from '@/utils/pay'
+
+const props = defineProps({
+  payData: {
+    type: Object,
+    required: true
+  }
+})
+// 支付宝支付
+const onAliPayClick = async () => {
+  alipay(props.payData.title, props.payData.desc)
+}
 </script>
 <style lang="scss"></style>
