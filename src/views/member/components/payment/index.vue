@@ -1,7 +1,7 @@
 <template>
   <div>
     <pc-payment v-if="!isMobileTerinal" :payData="payData"></pc-payment>
-    <mobile-payment v-else></mobile-payment>
+    <mobile-payment v-else :payData="payData"></mobile-payment>
   </div>
 </template>
 

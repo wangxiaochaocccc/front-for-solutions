@@ -18,7 +18,7 @@
       </m-button>
     </div>
     <m-popup v-model="isOpen">
-      <pay-select></pay-select>
+      <pay-select :payData="payData"></pay-select>
     </m-popup>
   </div>
 </template>
@@ -27,6 +27,13 @@
 import DiscountVue from '../discount.vue'
 import PaySelect from './pay-select.vue'
 import { ref } from 'vue'
+
+defineProps({
+  payData: {
+    type: Object,
+    required: true
+  }
+})
 
 const isOpen = ref(false)
 const onConfirmClick = () => {

@@ -1,6 +1,6 @@
 import store from '@/store'
 import { getAliPay } from '@/api/pay'
-import { isMobileTerminal } from '@/utils/flexible'
+import { isMobileTerinal } from '@/utils/flexble'
 
 /**
  * 触发支付宝支付
@@ -13,7 +13,7 @@ export const alipay = async (title, desc) => {
     title,
     '0.01',
     desc,
-    isMobileTerminal.value
+    isMobileTerinal.value
   )
   // 解构
   window.location.href = decodeURIComponent(encodeURI)
