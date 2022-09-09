@@ -52,15 +52,15 @@
         <!-- QQ -->
         <qq-login></qq-login>
         <!-- 微信 -->
-        <m-svg-icon class="w-4 cursor-pointer" name="wexin"></m-svg-icon>
+        <weixin-login></weixin-login>
       </div>
     </div>
+    <slide-captcha
+      v-if="isVisibleCaptcha"
+      @close="isVisibleCaptcha = false"
+      @success="onCaptchaSuccess"
+    ></slide-captcha>
   </div>
-  <slide-captcha
-    v-if="isVisibleCaptcha"
-    @close="isVisibleCaptcha = false"
-    @success="onCaptchaSuccess"
-  ></slide-captcha>
 </template>
 
 <script setup>
@@ -76,6 +76,7 @@ import {
 import { useStore } from 'vuex'
 import { LOGIN_TYPE_USERNAME } from '@/constant/'
 import QqLogin from './qq-login.vue'
+import WeixinLogin from './weixin-login.vue'
 
 const store = useStore()
 const router = useRouter()
