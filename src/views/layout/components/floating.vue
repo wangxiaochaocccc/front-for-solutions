@@ -23,7 +23,7 @@
         </div>
       </template>
 
-      <div class="w-[140px] overflow-hidden">
+      <div class="w-[140px] overflow-hidden" @click="onFeedBack">
         <div
           class="flex items-center p-1 cursor-pointer rounded hover:bg-zinc-100/60 dark:hover:bg-zinc-800"
         >
@@ -62,6 +62,10 @@ const onStartGuide = () => {
   driver.defineSteps(steps)
   // 开始
   driver.start()
+}
+// 立即吐槽
+const onFeedBack = () => {
+  window.open('https://support.qq.com/product/430136', '_blank')
 }
 </script>
 <style lang="scss" scoped>
